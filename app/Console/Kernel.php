@@ -13,11 +13,18 @@ class Kernel extends ConsoleKernel
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
+	 
+	  protected $commands = [
+
+        //\App\Console\Commands\SendMail::class,
+        \App\Console\Commands\SendReminderMail::class,
+    ];
+	
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
 
-         $schedule->command('send:remaindermail')->everyMinute();
+         $schedule->command('send:remindermail')->everyMinute();
     }
 
     /**
